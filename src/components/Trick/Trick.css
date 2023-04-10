@@ -1,0 +1,15 @@
+.trick-card {
+  width: fit-content;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  padding: 0px 10px;
+}
+
+.trick-name,
+.trick-obs {
+  text-transform: capitalize;
+}

@@ -16,4 +16,10 @@ code {
 html {
   background-image: url('https://www.goffbooks.com/wp-content/uploads/2020/02/9781951541187_002_iart-1024x664.jpg');
   background-size: cover;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
