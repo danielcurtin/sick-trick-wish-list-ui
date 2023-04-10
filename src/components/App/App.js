@@ -1,6 +1,6 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import getTricks from '../../apiCalls';
+import { getTricks, postNewTrick } from '../../apiCalls';
 
 import Tricks from '../Tricks/Tricks';
 import Error from '../Error/Error';
@@ -17,7 +17,9 @@ const App = () => {
   }, []);
 
   const addTrick = (newTrick) => {
-    setTricks([...tricks, newTrick]);
+    postNewTrick(newTrick)
+    .then(res => setTricks([...tricks, res]))
+    .catch(() => setError(true))
   };
 
   if (error) {
@@ -30,6 +32,6 @@ const App = () => {
       {tricks.length && <Tricks tricks={tricks} />}
     </div>
   );
-}
+};
 
 export default App;

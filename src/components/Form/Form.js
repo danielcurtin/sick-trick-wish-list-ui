@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Form.css';
 
 const Form = ({ addTrick }) => {
@@ -17,17 +17,25 @@ const Form = ({ addTrick }) => {
       tutorial: tutorial
     };
     addTrick(newTrick);
+    clearInputs();
+  };
+
+  const clearInputs = () => {
+    setStance('');
+    setName('');
+    setObstacle('');
+    setTutorial('');
   };
 
   return (
     <form>
-      <select name='stance' onChange={event => setStance(event.target.value)}>
+      <select name='stance' value={stance} onChange={event => setStance(event.target.value)}>
         <option value='Choose your Stance'>Choose your Stance</option>
         <option value='Regular'>Regular</option>
         <option value='Switch'>Switch</option>
       </select>
       <input type='text' name='trick name' placeholder='Name of Trick' value={name} onChange={event => setName(event.target.value)}></input>
-      <select name='obstacle' onChange={event => setObstacle(event.target.value)}>
+      <select name='obstacle' value={obstacle} onChange={event => setObstacle(event.target.value)}>
         <option value='Choose your Obstacle'>Choose your Obstacle</option>
         <option value='Flatground'>Flatground</option>
         <option value='Ledge'>Ledge</option>
