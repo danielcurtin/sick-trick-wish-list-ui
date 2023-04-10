@@ -1,0 +1,9 @@
+[
+  {
+    "stance": "regular",
+    "name": "trick",
+    "obstacle": "obstacle",
+    "tutorial": "https://www.youtube.com/",
+    "id": 12345
+  }
+]
