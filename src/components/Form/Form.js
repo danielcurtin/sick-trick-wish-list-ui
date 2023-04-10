@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './Form.css';
 
-const Form = () => {
+const Form = ({ addTrick }) => {
   const [stance, setStance] = useState('');
   const [name, setName] = useState('');
   const [obstacle, setObstacle] = useState('');
   const [tutorial, setTutorial] = useState('');
+
+  const submitTrick = (event) => {
+    event.preventDefault();
+    const newTrick = {
+      id: Date.now(),
+      stance: stance,
+      name: name,
+      obstacle: obstacle,
+      tutorial: tutorial
+    };
+    addTrick(newTrick);
+  };
 
   return (
     <form>
@@ -24,7 +36,7 @@ const Form = () => {
         <option value='Pool'>Pool</option>
       </select>
       <input type='text' placeholder='Link to Tutorial' value={tutorial} onChange={event => setTutorial(event.target.value)}></input>
-      <button type='submit'>Send It!</button>
+      <button type='submit' onClick={event => submitTrick(event)}>Send It!</button>
     </form>
   );
 };

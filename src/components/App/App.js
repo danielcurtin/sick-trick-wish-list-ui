@@ -14,7 +14,11 @@ const App = () => {
     getTricks()
     .then(res => setTricks(res))
     .catch(() => setError(true));
-  }, [])
+  }, []);
+
+  const addTrick = (newTrick) => {
+    setTricks([...tricks, newTrick]);
+  };
 
   if (error) {
     return <Error />
@@ -22,8 +26,8 @@ const App = () => {
   return (
     <div className="App">
       <h1>Sick Trick Wish List</h1>
-      <Form />
-      {tricks.length && <Tricks tricks={tricks}/>}
+      <Form addTrick={addTrick} />
+      {tricks.length && <Tricks tricks={tricks} />}
     </div>
   );
 }
