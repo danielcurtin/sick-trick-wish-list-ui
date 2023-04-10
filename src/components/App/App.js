@@ -3,6 +3,8 @@ import './App.css';
 import getTricks from '../../apiCalls';
 
 import Tricks from '../Tricks/Tricks';
+import Error from '../Error/Error';
+import Form from '../Form/Form';
 
 const App = () => {
   const [tricks, setTricks] = useState([]);
@@ -14,10 +16,13 @@ const App = () => {
     .catch(() => setError(true));
   }, [])
 
-
+  if (error) {
+    return <Error />
+  }
   return (
     <div className="App">
       <h1>Sick Trick Wish List</h1>
+      <Form />
       {tricks.length && <Tricks tricks={tricks}/>}
     </div>
   );
